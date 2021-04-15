@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <style>
+      input,
+      select {
+        box-sizing: border-box;
+        padding: 4px 11px;
+        color: rgba(0, 0, 0, 0.85);
+        font-size: 14px;
+        line-height: 1.5715;
+        background-color: #fff;
+        background-image: none;
+        border: 1px solid #d9d9d9;
+        border-radius: 2px;
+        transition: all 0.3s;
+      }
+      input:focus,
+      select:focus {
+        border-color: #40a9ff;
+        border-right-width: 1px !important;
+        outline: 0;
+        box-shadow: 0 0 0 2px rgb(24 144 255 / 20%);
+      }
+
+      select {
+        appearance: none;
+        padding-right: 29px;
+        background-image: url('data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%2264%2064%20896%20896%22%20width%3D%221em%22%20height%3D%221em%22%20fill%3D%22currentColor%22%3E%0A%3Cpath%20d%3D%22M884%20256h-75c-5.1%200-9.9%202.5-12.9%206.6L512%20654.2%20227.9%20262.6c-3-4.1-7.8-6.6-12.9-6.6h-75c-6.5%200-10.3%207.4-6.5%2012.7l352.6%20486.1c12.8%2017.6%2039%2017.6%2051.7%200l352.6-486.1c3.9-5.3.1-12.7-6.4-12.7z%22%2F%3E%0A%3C%2Fsvg%3E');
+        background-repeat: no-repeat;
+        background-position: right 0.7em top 50%;
+        background-size: 0.8em;
+      }
+      button {
+        line-height: 1.5715;
+        position: relative;
+        display: inline-block;
+        font-weight: 400;
+        white-space: nowrap;
+        text-align: center;
+        background-image: none;
+        box-shadow: 0 2px 0 rgb(0 0 0 / 2%);
+        cursor: pointer;
+        transition: all 0.3s cubic-bezier(0.645, 0.045, 0.355, 1);
+        -webkit-user-select: none;
+        -moz-user-select: none;
+        -ms-user-select: none;
+        user-select: none;
+        touch-action: manipulation;
+        height: 32px;
+        padding: 4px 15px;
+        font-size: 14px;
+        border-radius: 2px;
+        color: rgba(0, 0, 0, 0.85);
+        background: #fff;
+        border: 1px solid #d9d9d9;
+        outline: none;
+      }
+      button:focus {
+        color: #40a9ff;
+        background: #fff;
+        border-color: #40a9ff;
+      }
+
+      @-webkit-keyframes waveEffect {
+        to {
+          box-shadow: 0 0 0 #1890ff;
+          box-shadow: 0 0 0 6px #1890ff;
+        }
+      }
+
+      @keyframes waveEffect {
+        to {
+          box-shadow: 0 0 0 #1890ff;
+          box-shadow: 0 0 0 6px #1890ff;
+        }
+      }
+
+      @-webkit-keyframes fadeEffect {
+        to {
+          opacity: 0;
+        }
+      }
+
+      @keyframes fadeEffect {
+        to {
+          opacity: 0;
+        }
+      }
+
+      button:focus:after {
+        position: absolute;
+        top: 0;
+        right: 0;
+        bottom: 0;
+        left: 0;
+        display: block;
+        border-radius: inherit;
+        box-shadow: 0 0 0 0 #1890ff;
+        box-shadow: 0 0 0 0 #1890ff;
+        opacity: 0.2;
+        -webkit-animation: fadeEffect 2s cubic-bezier(0.08, 0.82, 0.17, 1),
+          waveEffect 0.4s cubic-bezier(0.08, 0.82, 0.17, 1);
+        animation: fadeEffect 2s cubic-bezier(0.08, 0.82, 0.17, 1),
+          waveEffect 0.4s cubic-bezier(0.08, 0.82, 0.17, 1);
+        -webkit-animation-fill-mode: forwards;
+        animation-fill-mode: forwards;
+        content: '';
+        pointer-events: none;
+      }
+
+      input[type='radio'] {
+        appearance: none;
+        border: solid 1px #ccc;
+        border-radius: 50%;
+        width: 1.2em;
+        height: 1.2em;
+        box-sizing: border-box;
+        display: inline-block;
+        padding: 0;
+        transition: border 0.3s;
+      }
+      input[type='radio']:checked {
+        border: solid 1px #1890ff;
+        background-image: url('data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%20100%20100%22%20width%3D%221em%22%20height%3D%221em%22%20fill%3D%22%231890ff%22%3E%0A%3Ccircle%20cx%3D%2250%22%20cy%3D%2250%22%20r%3D%2250%22%2F%3E%0A%3C%2Fsvg%3E');
+        background-repeat: no-repeat;
+        background-position: center;
+        background-size: 60%;
+      }
+    </style>
+  </head>
+  <body>
+    <form>
+      <label>
+        name:
+        <input name="name" />
+      </label>
+      <label>
+        age:
+        <input type="number" name="age" />
+      </label>
+      <label>
+        select:
+        <select name="select" style="width: 100px">
+          <option value="s1">s1</option>
+          <option value="s2">s2</option>
+          <option value="x1">x1</option>
+        </select>
+      </label>
+      <label>
+        radio:
+        <label><input type="radio" name="radio" value="r1" /> r1</label>
+        <label><input type="radio" name="radio" value="r2" /> r2</label>
+        <label><input type="radio" name="radio" value="r3" /> r3</label>
+      </label>
+      <button>submit</button>
+    </form>
+
+    <button>submit</button>
+  </body>
+</html>

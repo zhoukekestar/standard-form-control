@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+</head>
+<body>
+  <form
+    onformdata="event.formData.append('formDataAppend', true)"
+    onsubmit="event.preventDefault(); import('./formdata.js').then(d => d.onsubmit(event))"
+  >
+    <label>
+      name:
+      <input name="name" />
+    </label>
+    <label>
+      age:
+      <input type="number" name="age" />
+    </label>
+    <input type='submit' />
+  </form>
+  <p>https://developer.mozilla.org/en-US/docs/Web/API/FormData/FormData</p>
+  <p>https://developer.mozilla.org/en-US/docs/Web/API/HTMLFormElement/formdata_event</p>
+</body>
+</html>

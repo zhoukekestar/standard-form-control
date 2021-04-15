@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+  </head>
+  <body>
+    <form>
+      <label>
+        name:
+        <input name="name" required minlength="3" maxlength="5" />
+      </label>
+      <label>
+        age:
+        <input type="number" name="age" required min="3" max="5" />
+      </label>
+      <label>
+        pattern:
+        <input
+          name="pattern"
+          required
+          pattern="abc|xyz"
+          oninput="if (this.value !== 'abc' && this.value !== 'xyz') { this.setCustomValidity('abc or xyz only!') } else { this.setCustomValidity('')}"
+        />
+      </label>
+      <input type="submit" />
+    </form>
+    <p>https://developer.mozilla.org/en-US/docs/Learn/Forms/Form_validation</p>
+  </body>
+</html>

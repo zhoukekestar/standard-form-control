@@ -1,0 +1,41 @@
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <style>
+      input:valid {
+        outline: dashed 2px green;
+      }
+      input:invalid {
+        outline: dashed 2px red;
+      }
+      input:disabled {
+        outline: dashed 2px gray;
+      }
+    </style>
+
+  </head>
+  <body>
+    <form>
+      <label>
+        name:
+        <input name="name" required minlength="3" maxlength="5" />
+      </label>
+      <label>
+        age:
+        <input type="number" name="age" required min="3" max="5" />
+      </label>
+      <label>
+        disabled:
+        <input
+          name="disabled"
+          value="true"
+          disabled
+        />
+      </label>
+      <button>submit</button>
+    </form>
+    <p>https://web.dev/more-capable-form-controls/</p>
+  </body>
+</html>

@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+</head>
+<body>
+  <form>
+    <label>
+      name:
+      <input name="name" />
+    </label>
+    <label for="age">age: </label>
+    <input type="number" name="age" id='age' />
+    <input type="reset" />
+    <input type='submit' />
+  </form>
+
+  <script>
+    const form = document.forms[0];
+    console.log('form: ', form);
+    console.log('elements: ', form.elements);
+
+    const elements = form.elements
+    console.log('name input: ', elements.namedItem('name'));
+    console.log('name input labels: ', elements.namedItem('name').labels);
+    console.log('age input: ', elements.namedItem('age'));
+    console.log('age input labels: ', elements.namedItem('age').labels);
+
+  </script>
+</body>
+</html>

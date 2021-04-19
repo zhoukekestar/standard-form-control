@@ -4,7 +4,8 @@
   <meta charset="UTF-8">
 </head>
 <body>
-  <form>
+  <p>Input 'a' or 'aa', otherwise hide age.</p>
+  <form oninput="import('./effects.js').then(m => m.effects.call(this, event))">
     <label>
       name:
       <input name="name" />
@@ -13,9 +14,9 @@
       age:
       <input type="number" name="age" />
     </label>
-    <input type="reset" />
-    <input type='submit' />
-    <button>submit by button</button>
+    <button>submit</button>
   </form>
+
+  <script type="module" src="./enhance-form.js"></script>
 </body>
 </html>

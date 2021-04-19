@@ -4,10 +4,7 @@
   <meta charset="UTF-8">
 </head>
 <body>
-  <form
-    onformdata="event.formData.append('formDataAppend', true)"
-    onsubmit="event.preventDefault(); import('./formdata.js').then(d => d.onsubmit(event))"
-  >
+  <form is='krump-form' initial-values="import('./enhance-form.js').then(d => d.values())">
     <label>
       name:
       <input name="name" />
@@ -16,7 +13,9 @@
       age:
       <input type="number" name="age" />
     </label>
-    <input type='submit' />
+    <button>submit</button>
   </form>
+
+  <script type="module" src="./enhance-form.js"></script>
 </body>
 </html>

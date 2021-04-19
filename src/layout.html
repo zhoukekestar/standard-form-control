@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+</head>
+<body>
+  <form>
+    <form-layout>
+      <label>
+        <span>name:</span>
+        <input name="name" />
+      </label>
+      <label>
+        <span>age:</span>
+        <input type="number" name="age" />
+      </label>
+      <button>submit</button>
+    </form-layout>
+  </form>
+
+  <script>
+    class FormLayout extends HTMLElement {
+      constructor() {
+        super();
+
+        this.attachShadow({ mode: 'open' });
+        this.shadowRoot.innerHTML = `
+          <style>
+            :host {
+
+            }
+            ::slotted(label) {
+              display: block;
+              margin: 8px;
+            }
+          </style>
+          <slot></slot>
+        `;
+      }
+    }
+
+    customElements.define('form-layout', FormLayout)
+  </script>
+</body>
+</html>

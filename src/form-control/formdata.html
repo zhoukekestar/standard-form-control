@@ -2,8 +2,9 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
+  <link rel="stylesheet" href="https://gw.alipayobjects.com/os/esm/css-builder/antd-v4.css">
 </head>
-<body>
+<body class="antd-v4">
   <form>
     <label>
       name:
@@ -13,9 +14,13 @@
       age:
       <input type="number" name="age" />
     </label>
-    <input type="reset" />
+    <label>
+      date:
+      <antd-date-picker name='date'></antd-date-picker>
+    </label>
     <input type='submit' />
-    <button>submit by button</button>
   </form>
+
+  <script type="module" src="./antd-date-picker.js"></script>
 </body>
 </html>

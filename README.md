@@ -6,6 +6,7 @@
   在工作台场景下，很多页面本质上都是表单 + 列表（表单 + Table）的组合，而其中表单承接了工作台大部分的交互逻辑。对表单的抽象和维护，是工作台场景下的【可维护性】的重要命题。
 
 > ℹ️ 可以调查一下工作台的内容时间占比
+
 > ℹ️ 可以调查一下工作台的表单维护痛点
 
   本文重点讨论一下如何编写【高可维护性】的表单控件。在软件架构上【可维护】的重要性可参考 [聊聊工作台的可维护性](https://topic.atatech.org/articles/197320)。
@@ -17,8 +18,16 @@
 # 表单设计几个原则
 
 1. 尽可能多的原生能力，尽可能少的非规范扩展
+
+> 任何的非规范扩展，都会成为相应的学习成本，从而演变成历史债务。仅在原生能力不满足的情况下，才进行功能的扩展。
+
 2. 功能组件高内聚、功能单一、可扩展
+
+> 自定义控件内，仅处理本身字段的输入、验证等，不处理联动逻辑。要求样式、逻辑高度内聚，但提供属性配置进行扩展。
+
 3. Side Effects 尽可能抽离
+
+> 任何非通用逻辑，应都成为 Side Effects
 
 # 表单特性列表
 
@@ -174,7 +183,12 @@
 
 ## 布局
 
- 布局参考：https://getbootstrap.com/docs/5.0/layout/grid/
+  通过 Grid 布局，常见的表单布局将变得轻而易举。布局参考：
+* https://getbootstrap.com/docs/5.0/layout/grid/
+* http://www.ruanyifeng.com/blog/2019/03/grid-layout-tutorial.html
+
+  [尝试一下](https://zhoukekestar.github.io/standard-form-control/src/layout.html)
+
 # 自定义控件
 
 ## 添加数据
@@ -261,4 +275,6 @@ customElements.define('antd-date-picker', AntdDatePicker);
 * https://caniuse.com/?search=formdata
 * https://javascript.info/blob
 * https://html.spec.whatwg.org/multipage/custom-elements.html#validitystateflags
+* https://getbootstrap.com/docs/5.0/layout/grid/
+* http://www.ruanyifeng.com/blog/2019/03/grid-layout-tutorial.html
 

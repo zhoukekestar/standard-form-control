@@ -1,45 +1,52 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8">
-</head>
-<body>
-  <form>
-    <form-layout>
-      <label>
-        <span>name:</span>
+  <head>
+    <meta charset="UTF-8" />
+  </head>
+  <body style="padding: 40px;">
+    <form>
+      <grid-layout>
+        <label>name:</label>
         <input name="name" />
-      </label>
-      <label>
-        <span>age:</span>
+        <label>age:</label>
         <input type="number" name="age" />
-      </label>
-      <button>submit</button>
-    </form-layout>
-  </form>
+        <button style="width: 100px;padding: 8px;">submit</button>
+      </grid-layout>
+    </form>
 
-  <script>
-    class FormLayout extends HTMLElement {
-      constructor() {
-        super();
+    <script>
+      class GridLayout extends HTMLElement {
+        constructor() {
+          super();
 
-        this.attachShadow({ mode: 'open' });
-        this.shadowRoot.innerHTML = `
+          this.attachShadow({ mode: 'open' });
+          this.shadowRoot.innerHTML = `
           <style>
             :host {
-
+              grid-template-columns: 50px auto;
+              grid-gap: 10px;
+              display: grid;
+              width: 300px;
+              margin: auto;
+              justify-items: right;
             }
-            ::slotted(label) {
+            ::slotted(input) {
+              width: 100%;
+              box-sizing: border-box;
+            }
+            ::slotted(button) {
+              grid-column-start: 1;
+              grid-column-end: 3;
+              margin: 20px auto;
               display: block;
-              margin: 8px;
             }
           </style>
           <slot></slot>
         `;
+        }
       }
-    }
 
-    customElements.define('form-layout', FormLayout)
-  </script>
-</body>
+      customElements.define('grid-layout', GridLayout);
+    </script>
+  </body>
 </html>

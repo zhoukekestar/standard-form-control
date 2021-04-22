@@ -4,7 +4,7 @@
     <meta charset="UTF-8" />
   </head>
   <body>
-    <form>
+    <form autocomplete="off">
       <label>
         name:
         <input name="name" required minlength="3" maxlength="5" />
@@ -19,7 +19,7 @@
           name="pattern"
           required
           pattern="abc|xyz"
-          oninput="if (this.value !== 'abc' && this.value !== 'xyz') { this.setCustomValidity('abc or xyz only!') } else { this.setCustomValidity('')}"
+          oninput="if (this.value !== 'abc' && this.value !== 'xyz') { this.setCustomValidity('abc or xyz only! 😝') } else { this.setCustomValidity('')}"
         />
       </label>
       <input type="submit" />

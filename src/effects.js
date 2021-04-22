@@ -5,14 +5,11 @@ export const hide = (form, name) => {
   const input = form.elements.namedItem(name);
   if (!input) return;
 
-  // 保存元素原有的 display 属性
-  input[ORIGIN_STYLE_DISPLAY_SYMBOL] = input.style.display || "";
   input.style.display = "none";
 
   if (!input.labels) return;
 
   input.labels.forEach((label) => {
-    label[ORIGIN_STYLE_DISPLAY_SYMBOL] = label.style.display || "";
     label.style.display = "none";
   });
 };
@@ -21,12 +18,12 @@ export const show = (form, name) => {
   const input = form.elements.namedItem(name);
   if (!input) return;
 
-  input.style.display = input[ORIGIN_STYLE_DISPLAY_SYMBOL] || "";
+  input.style.display = "";
 
   if (!input.labels) return;
 
   input.labels.forEach((label) => {
-    label.style.display = label[ORIGIN_STYLE_DISPLAY_SYMBOL] || "";
+    label.style.display = "";
   });
 };
 

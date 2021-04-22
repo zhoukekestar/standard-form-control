@@ -40,6 +40,7 @@
   * 通过 `<input type="submit">` 或 `<button>` 提交表单
   * 默认使用 GET 请求，并通过 URL Encode 拼接至 URL Query String 上 （`application/x-www-form-urlencoded`）
     * 可使用 `method`, `enctype` 指定请求方式和加密类型
+  * 按【回车键】提交表单
   * 当提交表单后，浏览器点击返回，将会回写原有的表单值，可通过 [base](https://zhoukekestar.github.io/standard-form-control/src/base.html) 进行在线尝试
 
 ## Input 类型
